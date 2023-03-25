@@ -1,0 +1,19 @@
+{
+  "Top": "TOPへ",
+  "Features": "機能",
+  "Notice": "お知らせ",
+  "Install": "インストール",
+  "100-free": "100% 無料",
+  "a-chrome-extension": "Chrome 拡張機能",
+  "any-words-in-any-web-pages": "どの言葉でも、どのウェブページでも",
+  "highlight-or-or-annotate-or-or-collect": "ハイライト || 注釈 || 収集",
+  "short-notice": "現在、未解決のバグが含まれています。",
+  "long-notice": "この拡張機能により、ページレイアウトが壊れたり、ページが壊れたり、意図しない出力が発生する可能性があります。\nこれを防ぐには、特定のサイトでこの拡張機能がうまく機能しない場合に無効にすることができます。",
+  "find-known-issues-first-half": "で既知の問題を検索するか、新しい問題を報告してください",
+  "find-known-issues-2nd": "へ",
+  "find-known-issues-1st": "既知の問題を検索するや新しい問題を報告するには",
+  "add-new-word": "単語追加",
+  "manage-word-collection": "単語コレクションを管理する",
+  "show-annotation": "注釈を表示",
+  "rating-tagging-editing": "評価、タグ付け、編集"
+}
