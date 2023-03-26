@@ -1,11 +1,11 @@
 import gsap from "gsap";
 import "./App.css";
-// import { FeatureSection } from "./FeatureSection";
 import { FirstSection } from "./FirstSection";
 import { Navbar } from "./Navbar";
 import { NoticeSection } from "./NoticeSection";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import { FeatureSection } from "./FeatureSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +32,6 @@ const VideoAndTitle = ({ videoName, title }) => {
 
 function App() {
   const containerRef = useRef(null);
-  const featureTitleRef = useRef(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -58,9 +57,10 @@ function App() {
 
       gsap.to(".video-part", {
         x: -1900,
+        duration: 10,
         scrollTrigger: {
           start: "60% 60%",
-          end: "60% 10%",
+          end: "+=2000",
           trigger: ".section-two",
           scrub: 1,
           // markers: true,
@@ -78,44 +78,28 @@ function App() {
     >
       <Navbar />
       <FirstSection />
-      <section className="section-two flex justify-center w-screen">
-        <div id="features-target" className="-translate-y-32"></div>
-        <div
-          className="w-full       bg-[url('https://source.unsplash.com/q_w9HHCznYE')]       bg-cover bg-bottom
-      bg-fixed 
-
-"
-        >
-          <h3
-            ref={featureTitleRef}
-            id="features-section"
-            className="text-5xl font-bold w-fit px-3 m-10 relative "
-          >
-            Features
-            <svg
-              className="absolute fill-gray-200 -bottom-6 -left-4 z-10 w-[100px] opacity-20"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
+      <FeatureSection />
+      <NoticeSection />
+      <section
+        id="credit-section"
+        className="section-four w-screen mt-10 text-black min-h-[5vh] "
+      >
+        <div className="w-full h-full flex justify-center">
+          <h4 className="text-xl">
+            Built by rakakroma
+            <a
+              href="https://github.com/rakakroma/steal-the-word"
+              className="text-xl"
             >
-              <circle cx="50%" cy="50%" r="100" />
-            </svg>
-          </h3>
-          <div className="video-part flex">
-            <VideoAndTitle videoName={"video1.mp4"} title="show annotation" />
-            <VideoAndTitle videoName={"video2.mp4"} title="add new word" />
-            <VideoAndTitle
-              videoName={"video3.mp4"}
-              title="rating, tagging, editing"
-            />
-            <VideoAndTitle
-              videoName={"video4.mp4"}
-              title="manage word collection"
-            />
-          </div>
+              <img
+                className="inline-block w-6 h-6 mx-2 hover:drop-shadow-[0_0_20px_rgba(0,0,0,0.7)]"
+                src="github-mark.svg"
+                alt="github logo"
+              />
+            </a>
+          </h4>
         </div>
       </section>
-
-      <NoticeSection />
     </div>
   );
 }

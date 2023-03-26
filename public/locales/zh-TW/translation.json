@@ -1,0 +1,19 @@
+{
+  "Top": "回到頂端",
+  "Features": "功能",
+  "Notice": "注意事項",
+  "Install": "馬上安裝",
+  "100-free": "100% 免費",
+  "a-chrome-extension": "Chrome 擴充功能",
+  "any-words-in-any-web-pages": "任何網頁x任何詞彙",
+  "highlight-or-or-annotate-or-or-collect": "畫線 || 標注 || 收集 ",
+  "short-notice": "此擴充功能目前還有一些bugs。",
+  "long-notice": "有可能造成部分網頁跑版、無法正常運行，或是異常的輸出內容。如果你懷疑這些異常狀況是本擴充程式造成，可以針對特定網站停用它。",
+  "find-known-issues-first-half": "找尋已知問題",
+  "find-known-issues-1st": "在",
+  "find-known-issues-2nd": "可以查找已知的問題，或是回報新的bug。",
+  "show-annotation": "顯示註解",
+  "add-new-word": "收集新詞",
+  "rating-tagging-editing": "評分、標籤、編輯",
+  "manage-word-collection": "整理收藏"
+}
