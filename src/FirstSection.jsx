@@ -5,14 +5,14 @@ const AppHeading = () => {
   return (
     <div>
       <div className="relative z-30 ">
-        <h2 className="heading-ad-tag absolute top-[-20px] text-lg lg:text-xl font-bold bg-red-400 text-white w-fit px-3">
+        <h2 className="heading-ad-tag absolute -left-6 -rotate-3 top-[-20px] z-40 text-md lg:text-lg font-bold bg-red-400 text-white px-1 w-fit whitespace-nowrap">
           {t("100-free")}
         </h2>
-        <h1 className="heading-main-title  -rotate-3 text-3xl xs:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gray-300 text-gray-700 w-fit px-3 mb-5">
+        <h1 className="heading-main-title text-3xl xs:text-4xl lg:text-5xl xl:text-6xl font-bold bg-black lg:bg-transparent  text-gray-200 w-fit px-3 ">
           <div className="heading-main-title-text">Steal the Word!</div>
         </h1>
         <div className="heading-content z-30">
-          <h2 className="heading-summary text-xl sm:text-2xl font-bold  bg-black text-white w-fit px-3">
+          <h2 className="heading-summary text-xl sm:text-2xl font-bold  bg-black lg:bg-transparent  text-white w-fit px-3 mb-2">
             {t("a-chrome-extension")}
           </h2>
           <h2 className="heading-detail-1 text-sm xs:text-lg sm:text-xl xl:text-2xl font-bold bg-white text-black w-fit px-3">
@@ -29,7 +29,7 @@ const AppHeading = () => {
           >
             {t("Install")}
             <img
-              className="inline-block w-6 sm:w-8 group-hover/chrome:w-12 mx-2 transition-all"
+              className="inline-block w-4 sm:w-6 group-hover/chrome:w-8 mx-2 transition-all"
               src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Google_Chrome_Web_Store_icon_2022.svg"
             />
             →
@@ -58,10 +58,18 @@ const AppHeadingLg = () => {
 export const FirstSection = () => {
   return (
     <section className="section-one flex relative h-full justify-center w-screen mb-12">
+      {/* <svg
+        className="absolute fill-gray-700 -bottom-[550px] left-0 right-0 my-0 z-0 mx-auto w-[750px] opacity-70 "
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="50%" cy="50%" r="100" />
+      </svg> */}
+
       <div className="w-full h-full min-h-[400px] max-w-[600px]">
         <div className="relative z-10 w-full flex lg:block justify-center">
           <img
-            className="app-img mt-16"
+            className="app-img mt-16 z-20"
             width="550px"
             src="transparent-thief2.png"
           />
