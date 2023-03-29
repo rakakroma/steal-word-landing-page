@@ -15,7 +15,7 @@ export const MyDropdown = () => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center rounded-md px-2 text-lg sm:text-xl font-bold text-white hover:text-gray-400">
-          <LanguageIcon className="ml-2 -mr-1 w-5 xs:w-7 " />
+          <LanguageIcon className="ml-2 -mr-1 w-5 xs:w-7" />
           <ChevronDownIcon className="ml-2 -mr-1 h-5 w-5 " aria-hidden="true" />
         </Menu.Button>
       </div>

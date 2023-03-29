@@ -57,7 +57,7 @@ const AppHeadingLg = () => {
 
 export const FirstSection = () => {
   return (
-    <section className="section-one flex relative h-full justify-center w-screen mb-12">
+    <section className="section-one flex relative h-[100vh] justify-center w-screen mb-12">
       {/* <svg
         className="absolute fill-gray-700 -bottom-[550px] left-0 right-0 my-0 z-0 mx-auto w-[750px] opacity-70 "
         viewBox="0 0 200 200"

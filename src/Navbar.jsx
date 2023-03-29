@@ -18,12 +18,13 @@ export const Navbar = () => {
     return () => ctx.revert();
   }, []);
 
+  // ["#top", "nav-top", "Top"],
+
   return (
     <div className="fixed top-0 w-screen z-50 flex justify-end" ref={navBarRef}>
       <nav className="navbar p-2 max-w-lg flex justify-center space-x-0 xs:space-x-2 sm:space-x-4  bg-opacity-60">
         <MyDropdown />
         {[
-          ["#top", "nav-top", "Top"],
           ["#features-target", "nav-features", "Features"],
           ["#notice-section", "nav-notice", "Notice"],
         ].map(([target, theClassName, text]) => {

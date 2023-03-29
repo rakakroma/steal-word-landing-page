@@ -4,9 +4,10 @@ import { FirstSection } from "./FirstSection";
 import { Navbar } from "./Navbar";
 import { NoticeSection } from "./NoticeSection";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { FeatureSection } from "./FeatureSection";
 import { isSafari } from "react-device-detect";
+import { ScrollDownButton } from "./ScrollDownButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,13 +21,25 @@ function App() {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.from(".gradient-blob", {
-        opacity: 0,
-        scale: 0.4,
-        rotate: 45,
-        duration: 3,
-        ease: "power3",
-      });
+      gsap.fromTo(
+        ".gradient-blob",
+        {
+          opacity: 0,
+          scale: 0.3,
+          rotate: 45,
+          x: 0,
+          y: 0,
+        },
+        {
+          x: 0,
+          y: "130%",
+          rotate: 120,
+          scale: 0.5,
+          opacity: 1,
+          duration: 3,
+          ease: "power3",
+        }
+      );
       gsap
         .timeline()
         .from(".app-img", {
@@ -47,6 +60,15 @@ function App() {
         .from(".heading-install-button", { opacity: 0 }, "-=0.6")
         .from(".heading-ad-tag", { opacity: 0 });
 
+      gsap.fromTo(
+        ".scroll-down-icon",
+        {
+          opacity: 0.3,
+          y: -10,
+        },
+        { opacity: 1, y: 0, repeat: -1, ease: "power3", duration: 2 }
+      );
+
       gsap.to(".video-part", {
         x: -(videoPartRef.current.scrollWidth - currentWidth),
         //this did not detect the window's width change automatically
@@ -62,21 +84,52 @@ function App() {
 
       gsap.fromTo(
         ".gradient-blob",
-        { bottom: "38%" },
+        { x: 0, y: "130%", rotate: 120, scale: 0.5 },
         {
-          bottom: "10%",
+          x: 0,
+          y: "50%",
+          rotate: 180,
           scale: 1.3,
           scrollTrigger: {
-            start: "50% bottom",
-            end: "50% top",
+            start: "10% center",
+            end: "35% center",
+            toggleActions: "restart none none reverse",
+            // scrub: 1,
+            trigger: ".section-two",
+            // markers: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        ".gradient-blob",
+        { y: "50%", scale: 1.3, rotate: 180 },
+        {
+          y: "70%",
+          scale: 1.8,
+          rotate: 260,
+          scrollTrigger: {
+            start: "10% center",
+            end: "35% center",
+            toggleActions: "restart none none reverse",
             scrub: 1,
+            trigger: ".section-three",
             // markers: true,
           },
         }
       );
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
+
+  // useEffect(()=>{
+  //   const isAtBottom = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset <= 0
+  //   window.addEventListener('scroll',()=>{
+  //     if(isAtBottom){
+
+  //     }
+  //   })
+  // },[])
 
   return (
     <div
@@ -86,9 +139,9 @@ function App() {
     >
       <img
         src={isSafari ? "gradient-blob-safari.svg" : "gradient-blob.svg"}
-        className="gradient-blob fixed  left-0 right-0 my-0 z-0 mx-auto w-[450px] opacity-90"
+        className="gradient-blob fixed left-0 right-0 my-0 z-0 mx-auto w-[450px] opacity-90 will-change-transform"
       />
-
+      <ScrollDownButton />
       <Navbar />
       <FirstSection />
       <FeatureSection ref={videoPartRef} />
