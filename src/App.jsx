@@ -8,16 +8,18 @@ import { useLayoutEffect, useRef } from "react";
 import { FeatureSection } from "./FeatureSection";
 import { isSafari } from "react-device-detect";
 import { ScrollDownButton } from "./ScrollDownButton";
-
+import { useResize } from "./useResize";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const { videoPartRef, countedWidth } = useResize();
+
   const containerRef = useRef(null);
-  const videoPartRef = useRef(null);
-  const currentWidth = Math.max(
-    document.documentElement.clientWidth || 0,
-    window.innerWidth || 0
-  );
+  // const videoPartRef = useRef(null);
+  // const currentWidth = Math.max(
+  //   document.documentElement.clientWidth || 0,
+  //   window.innerWidth || 0
+  // );
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -32,10 +34,10 @@ function App() {
         },
         {
           x: 0,
-          y: "130%",
+          y: "150%",
           rotate: 120,
           scale: 0.5,
-          opacity: 1,
+          opacity: 0.5,
           duration: 3,
           ease: "power3",
         }
@@ -70,11 +72,11 @@ function App() {
       );
 
       gsap.to(".video-part", {
-        x: -(videoPartRef.current.scrollWidth - currentWidth),
+        x: -countedWidth,
         //this did not detect the window's width change automatically
         scrollTrigger: {
           start: "60% 60%",
-          end: `+=${videoPartRef.current.scrollWidth - currentWidth}`,
+          end: `+=${countedWidth}`,
           trigger: ".section-two",
           scrub: 1,
           // markers: true,
@@ -84,12 +86,13 @@ function App() {
 
       gsap.fromTo(
         ".gradient-blob",
-        { x: 0, y: "130%", rotate: 120, scale: 0.5 },
+        { x: 0, y: "150%", rotate: 120, scale: 0.5, opacity: 0.5 },
         {
           x: 0,
           y: "50%",
           rotate: 180,
           scale: 1.3,
+          opacity: 1,
           scrollTrigger: {
             start: "10% center",
             end: "35% center",
@@ -117,19 +120,19 @@ function App() {
           },
         }
       );
+
+      gsap.to(".scroll-button", {
+        scrollTrigger: {
+          start: "10% bottom",
+          trigger: "#credit-section",
+          toggleClass: { targets: ".scroll-button", className: "hide" },
+          // markers: true,
+        },
+      });
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
-
-  // useEffect(()=>{
-  //   const isAtBottom = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.pageYOffset <= 0
-  //   window.addEventListener('scroll',()=>{
-  //     if(isAtBottom){
-
-  //     }
-  //   })
-  // },[])
+  }, [countedWidth]);
 
   return (
     <div
